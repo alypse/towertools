@@ -38,3 +38,6 @@ export const useInputState = (initial, key) => {
     const updateState = useInputEvent(setState);
     return [state, updateState, setState];
 };
+
+export const capitalize = string => (!string?.length ? '' : string.charAt(0).toUpperCase() + string.substring(1).toLowerCase());
+export const capitalizeAll = string => (!string?.length ? '' : string.split(' ').map(capitalize).join(' '));

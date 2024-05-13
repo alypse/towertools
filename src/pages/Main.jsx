@@ -1,7 +1,7 @@
 import './Main.scss';
-import { useInputState} from "./utils/hooks";
-import { Apps } from "./components/Apps.js";
-import { Guides} from "./components/Guides.js";
+import { useInputState, capitalizeAll } from "../utils/hooks";
+import { Apps } from "../components/Apps.js";
+import { Guides } from "../components/Guides.js";
 
 
 export const VIEWS = {
@@ -16,6 +16,7 @@ const Main = () => {
             <div className='nav'>
                 {Object.entries(VIEWS).map(([key, value]) => (
                     <button key={key} type='button' value={value} onClick={setView}>
+                        {capitalizeAll(value)}
                     </button>
                 ))}
             </div>
