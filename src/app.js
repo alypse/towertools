@@ -1,4 +1,4 @@
-import Main from '/pages/Main.jsx';
+import Main from './pages/Main.jsx';
 import './app.scss';
 
 
