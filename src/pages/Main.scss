@@ -3,6 +3,7 @@
 #main {
   display: flex;
   flex-direction: column;
+  background: $background;
   border: 1px solid $secondary;
   padding: 5px;
   justify-content: flex-start;

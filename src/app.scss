@@ -1,5 +1,14 @@
 @import 'variables.scss';
 
+$font: 'Palanquin', sans-serif;
+
+html,
+body {
+  background-color: $background;
+  color: $white;
+  font-family: $font;
+}
+
 #main {
   display: flex;
   flex-direction: column;
