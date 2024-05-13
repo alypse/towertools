@@ -1,0 +1,15 @@
+$background: rgb(10, 10, 10);
+$light-background: rgb(30, 30, 30);
+$primary: rgb(10, 200, 255);
+$secondary: rgb(180, 150, 255);
+$success: rgb(10, 255, 137);
+$danger: rgb(255, 65, 65);
+$white: rgb(255, 255, 255);
+$disabled: rgb(100, 100, 120);
+
+@mixin container($color) {
+  border: 1px solid $color;
+  border-radius: 3px;
+  padding: 5px;
+  margin: 5px;
+}

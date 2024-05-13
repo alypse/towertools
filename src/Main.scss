@@ -1,0 +1,18 @@
+@import 'variables.scss';
+
+#main {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid $secondary;
+  padding: 5px;
+  justify-content: flex-start;
+  align-items: stretch;
+  .nav {
+    @include container($secondary);
+    display: flex;
+    button { width: 8rem; margin: 5px; }
+    @media (max-width: 600px) {
+      flex-direction: column;
+    }
+  }
+}
