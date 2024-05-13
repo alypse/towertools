@@ -1,11 +1,10 @@
 import Main from './pages/Main.jsx';
 import './app.scss';
 
-
-const App = () => (
-    <div>
-        <Main />
-    </div>
-);
+function App() {
+  return (
+    <Main />
+  );
+}
 
 export default App;
