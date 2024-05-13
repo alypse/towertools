@@ -8,7 +8,7 @@ export function Apps() {
             <div className="list">
                 <ul>
                     {APPLIST.apps.map((app) => (
-                        <li>
+                        <li key={app.id}>
                             <h2>{app.name}</h2>
                             <p>{app.description}</p>
                             <a href={app.url} target="_blank" rel="noreferrer">{app.url}</a>
