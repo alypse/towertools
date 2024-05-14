@@ -19,12 +19,30 @@ body {
   .nav {
     @include container($secondary);
     display: flex;
-    button { width: 8rem; margin: 5px; }
+    button {
+      width: 8rem;
+      margin: 5px;
+    }
+
     @media (max-width: 600px) {
       flex-direction: column;
     }
   }
   .list {
+    @include container($primary);
+    display: flex;
+    padding: 5px;
+    flex-direction: column;
+    align-items: stretch;
+    .item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 5px;
+      margin: 5px;
+    }
+  }
+  .list-light {
     @include container($primary);
     display: flex;
     padding: 5px;

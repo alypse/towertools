@@ -2,6 +2,7 @@ import './Main.scss';
 import { useInputState, capitalizeAll } from "../utils/hooks";
 import { Apps } from "../components/Apps.js";
 import { Guides } from "../components/Guides.js";
+import React from "react";
 
 
 export const VIEWS = {
