@@ -29,7 +29,7 @@ export const APPLIST = {
         {
             "id": 3,
             "name": "Lab Calculator",
-            "description": "ook up lab costs, plan out your entire lab progress, optimize how far to run your lab speed. Use \"Show Costs\" to look at Lab Speed/Discount labs or to look at times with Speedup applied.",
+            "description": "Look up lab costs, plan out your entire lab progress, optimize how far to run your lab speed. Use \"Show Costs\" to look at Lab Speed/Discount labs or to look at times with Speedup applied.",
             "url": "https://tower-lab-calculator.netlify.app/",
             "author": "Skye",
             "status": "supported"
