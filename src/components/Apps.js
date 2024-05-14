@@ -4,7 +4,7 @@ import {APPLIST} from "../utils/Applist.js";
 
 export function Apps() {
     return (
-        <div id="main">
+        <div id="apps">
             <div className="list">
                 <ul>
                     {APPLIST.apps.map((app) => (

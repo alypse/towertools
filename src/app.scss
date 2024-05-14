@@ -10,9 +10,9 @@ body {
 }
 
 #main {
+  @include container($secondary);
   display: flex;
   flex-direction: column;
-  border: 1px solid $secondary;
   padding: 5px;
   justify-content: flex-start;
   align-items: stretch;
@@ -24,4 +24,68 @@ body {
       flex-direction: column;
     }
   }
+  .list {
+    @include container($primary);
+    display: flex;
+    padding: 5px;
+    flex-direction: column;
+    align-items: stretch;
+    .item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 5px;
+      margin: 5px;
+    }
+  }
+}
+
+button {
+  font-family: $font;
+  font-weight: 600;
+  font-size: 14px;
+  outline: none;
+  border: 1px solid $primary;
+  background-color: transparent;
+  color: $white;
+  border-radius: 3px;
+  padding: 0.5rem 0.25rem;
+  width: 10rem;
+  display: flex;
+  flex-wrap: wrap;
+  flex-grow: 0;
+  flex-shrink: 0;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  &:hover:enabled {
+    background-color: $secondary;
+    border-color: $secondary;
+    &:active {
+      background-color: $primary;
+      border-color: $primary;
+    }
+  }
+  &:disabled {
+    border-color: $disabled;
+    background-color: $disabled;
+    cursor: not-allowed;
+  }
+}
+
+li {
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+  color: $secondary;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+a:visited {
+  color: $secondary;
 }

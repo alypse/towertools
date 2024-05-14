@@ -4,7 +4,7 @@ import {GUIDELIST} from "../utils/Guidelist.js";
 
 export function Guides() {
     return (
-        <div id="main">
+        <div id="guides">
             <div className="list">
                 <ul>
                     {GUIDELIST.guides.map((guide) => (
