@@ -9,9 +9,8 @@ export function Apps() {
                 <ul>
                     {APPLIST.apps.map((app) => (
                         <li key={app.id}>
-                            <h2>{app.name}</h2>
+                            <a href={app.url} target="_blank" rel="noreferrer">{app.name}</a>
                             <p>{app.description}</p>
-                            <a href={app.url} target="_blank" rel="noreferrer">{app.url}</a>
                         </li>
                     ))}
                 </ul>

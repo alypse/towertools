@@ -9,9 +9,8 @@ export function Guides() {
                 <ul>
                     {GUIDELIST.guides.map((guide) => (
                         <li key={guide.id}>
-                            <h2>{guide.name}</h2>
+                            <a href={guide.url} target="_blank" rel="noreferrer">{guide.name}</a>
                             <p>{guide.description}</p>
-                            <a href={guide.url} target="_blank" rel="noreferrer">{guide.url}</a>
                         </li>
                     ))}
                 </ul>
