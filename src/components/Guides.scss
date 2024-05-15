@@ -1,16 +1,3 @@
 @import '../variables.scss';
 
-#main {
-  display: flex;
-  flex-direction: column;
-  padding: 5px;
-  justify-content: flex-start;
-  align-items: stretch;
-  .nav {
-    display: flex;
-    button { width: 8rem; margin: 5px; }
-    @media (max-width: 600px) {
-      flex-direction: column;
-    }
-  }
-}
+
