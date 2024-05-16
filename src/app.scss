@@ -35,10 +35,45 @@ body {
     padding: 10px;
     .item {
       display: flex;
-      justify-content: space-between;
-      align-items: center;
+      flex-direction: column;
+      justify-content: center;
       padding: 5px;
       margin: 5px;
+      .title {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 5px;
+        .expander {
+          cursor: pointer;
+          color: $secondary;
+          font-weight: bolder;
+        }
+      }
+      .content {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: start;
+        padding: 0 5px;
+        max-height: 0;
+        overflow: hidden;
+        transition: all 0.5s cubic-bezier(0,1,0,1);
+      }
+      .content.show {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: start;
+        padding: 0 5px;
+        max-height: 1000px;
+        transition: all 0.5s cubic-bezier(1,0,1,0);
+        .details {
+          color: $secondary;
+          font-weight: lighter;
+          padding: 5px 0;
+        }
+      }
     }
   }
 }
@@ -84,11 +119,10 @@ a {
   text-decoration: underline;
   color: $secondary;
 }
-
 a:hover {
   text-decoration: underline;
 }
-
 a:visited {
   color: $secondary;
 }
+
