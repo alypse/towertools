@@ -20,7 +20,7 @@ export function Guides() {
                     <div className='title'>
                         <a className='app' href={guide.url} target="_blank" rel="noreferrer">{guide.name}</a>
                         <div className='expander' onClick={() => toggle(i)}>
-                            {expanded === i ? '-' : '+'}
+                            {expanded === i ? '' : '+'}
                         </div>
                     </div>
                     <div className={expanded === i ? 'content show' : 'content'}>
