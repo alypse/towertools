@@ -73,6 +73,23 @@ export const APPLIST = {
             "url": "https://tower-cell-calculator.netlify.app/",
             "author": "Skye",
             "status": "supported"
-        }
+        },
+        {
+            "id": 8,
+            "name": "Cell Calculator",
+            "description": "Estimate your cell income on each tier to compare which one is better, optimize when to take off Wave Skip to maximize cell income, look at cells/kill upgrade breakpoints for each tier (not every level actually increases how much you gain!), and simulate cell farming results.",
+            "url": "https://tower-cell-calculator.netlify.app/",
+            "author": "Skye",
+            "status": "supported"
+        },
+        {
+            "id": 9,
+            "name": "Multiverse Nexus Calculator",
+            "description": "Calculate the synchronized cooldowns with Multiverse Nexus Core Module, including mod and substat qualities.",
+            "url": "https://multiverse-nexus-calculator.netlify.app/",
+            "author": "Alypse",
+            "status": "supported"
+        },
+
     ]
 }

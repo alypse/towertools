@@ -44,10 +44,14 @@ body {
         justify-content: space-between;
         align-items: center;
         padding: 5px;
+
         .expander {
+          display: flex;
           cursor: pointer;
           color: $secondary;
           font-weight: bolder;
+          flex-grow: 1;
+          justify-content: flex-end;
         }
       }
       .content {
