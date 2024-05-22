@@ -82,14 +82,13 @@ export const APPLIST = {
             "author": "Skye",
             "status": "supported"
         },
-        {
-            "id": 9,
-            "name": "Multiverse Nexus Calculator",
-            "description": "Calculate the synchronized cooldowns with Multiverse Nexus Core Module, including mod and substat qualities.",
-            "url": "https://multiverse-nexus-calculator.netlify.app/",
-            "author": "Alypse",
-            "status": "supported"
-        },
-
+        // {
+        //     "id": 9,
+        //     "name": "Multiverse Nexus Calculator",
+        //     "description": "Calculate the synchronized cooldowns with Multiverse Nexus Core Module, including mod and substat qualities.",
+        //     "url": "https://multiverse-nexus-calculator.netlify.app/",
+        //     "author": "Alypse",
+        //     "status": "supported"
+        // },
     ]
 }
