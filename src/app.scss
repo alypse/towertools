@@ -41,36 +41,42 @@ body {
   .list {
     @include container($primary);
     display: flex;
+    max-width: 400px;
+    width: 60%;
     flex-direction: column;
     align-items: center;
     padding: 3px;
-    .item {
+    .panel {
       display: flex;
       flex-direction: column;
       place-self: stretch;
-      padding: 8px;
+      //padding: 8px;
       margin: 5px;
-      border: 1px solid $secondary;
+      border: 2px solid $secondary;
       border-radius: 8px;
       .title {
         display: flex;
-        justify-content: center;
+        justify-content: flex-end;
         align-items: center;
-        padding: 8px;
         margin: 0 5px;
+        padding: 5px;
+        border-bottom: 1px solid $secondary;
         .info {
           display: flex;
+          justify-content: center;
           cursor: pointer;
           font-weight: bolder;
           flex-grow: 0;
+          margin: 10px;
           .btn {
             display: flex;
             justify-content: center;
+            align-items: center;
             background: transparent;
             border-style: none;
             .info-circle {
               width: 28px;
-              color: $secondary;
+              filter: drop-shadow(0 0 0.15rem $hover);
             }
           }
         }
