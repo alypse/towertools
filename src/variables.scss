@@ -20,20 +20,13 @@ $hover: #E945FF;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  max-width: 300px;
+  max-width: 100%;
   background: $color;
   color: $white;
   padding: 8px;
   margin: 5px;
+  border-top: 1px solid $secondary;
 
-  .name {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 8px;
-    font-weight: bolder;
-    font-size: 1.2rem;
-  }
   .details {
     display: flex;
     cursor: pointer;
