@@ -7,15 +7,9 @@ import infoCircle  from '../assets/static/info-circle.svg';
 
 
 export function Apps() {
-    const [expanded, setExpanded] = useState(null);
-
-    const toggle = i => {
-        if (expanded === i) {
-            setExpanded(null);
-
-        }
-        setExpanded(i);
-    };
+    const [showDialog, setShowDialog] = useState(false);
+    const open = () => setShowDialog(true);
+    const close = () => setShowDialog(false);
 
     return (
         <div className="list">
@@ -24,17 +18,28 @@ export function Apps() {
                     <div className='title'>
                         <img className='icon' src={app.icon} alt={app.name}/>
                         <a className='app' href={app.url} target="_blank" rel="noreferrer">{app.name}</a>
-                        <div className='expander' onClick={() => toggle(i)}>
-                            {expanded === i ? '' : infoCircle}
+                        <div className='info'>
+                            <button className='btn' onClick={() => open()}>
+                                <img src={infoCircle} className='info-circle' alt='appinfo'/>
+                            </button>
                         </div>
                     </div>
-                    <div className={expanded === i ? 'content show' : 'content'}>
-                        <div className='description'>{app.description}</div>
-                        <div className='details'>Author: {app.author}</div>
+                    <div>
+                        {showDialog && (
+                            <div className='dialog'>
+                                <div className='dialog-content' onClick={(i) => close()}>
+                                    <div className='name'>{APPLIST.apps[i].name}</div>
+                                    <div className='details'>Created by {APPLIST.apps[i].author}</div>
+                                    <div className='description'>{APPLIST.apps[i].description}</div>
+                                </div>
+                            </div>
+                        )}
                     </div>
                 </div>
             ))}
         </div>
     );
 }
+
+
 

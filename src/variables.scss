@@ -1,15 +1,54 @@
-$background: rgb(17, 17, 17);
-$light-background: rgb(30, 30, 30);
-$primary: rgb(10, 200, 255);
-$secondary: rgb(143, 143, 143);
-$success: rgb(10, 255, 137);
-$danger: rgb(255, 65, 65);
-$white: rgb(255, 255, 255);
-$disabled: rgb(100, 100, 120);
+$background: #111111;
+$light-background: #FAFAFA ;
+$primary: #747474;
+$secondary: #919191;
+$success: #32EF2E;
+$danger: #FA1313;
+$white: #FAFAFA;
+$disabled: #1C1C1C;
+$B: #FA1313;
+$active: #40F4FF;
+$hover: #E945FF;
 
 @mixin container($color) {
-  border: 1px solid $color;
-  border-radius: 3px;
+  border-radius: 8px;
   padding: 5px;
   margin: 5px;
 }
+
+@mixin dialog($color) {
+  max-width: 400px;
+  background: $color;
+  color: $white;
+  border: 1px solid $primary;
+  padding: 8px;
+  border-radius: 8px;
+  .name {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px;
+    font-weight: bolder;
+    font-size: 1.2rem;
+  }
+  .details {
+    display: flex;
+    cursor: pointer;
+    flex-grow: 0;
+    padding: 8px;
+    font-weight: normal;
+    font-size: 0.8rem;
+  }
+  .description {
+    display: flex;
+    cursor: pointer;
+    flex-grow: 0;
+    padding: 8px;
+    font-weight: lighter;
+    font-size: 1rem;
+  }
+}
+
+
+
+

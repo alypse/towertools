@@ -13,18 +13,28 @@ body {
   @include container($secondary);
   display: flex;
   flex-direction: column;
-  padding: 5px;
   justify-content: flex-start;
-  align-items: stretch;
+  align-items: center;
   .nav {
     @include container($secondary);
     display: flex;
+    justify-content: center;
     button {
-      width: 8rem;
-      margin: 5px;
+      width: 4rem;
+      border: 1px solid $primary;
+      border-radius: 8px;
+      background-color: $background;
+      color: $white;
+      padding: 8px 8px;
+      &:hover {
+        border-color: $success;
+      }
+      &:active {
+        border-color: $hover;
+      }
     }
 
-    @media (max-width: 600px) {
+    @media (max-width: 400px) {
       flex-direction: column;
     }
   }
@@ -33,91 +43,53 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 10px;
+    padding: 3px;
     .item {
       display: flex;
       flex-direction: column;
-      justify-content: center;
-      padding: 5px;
+      place-self: stretch;
+      padding: 8px;
       margin: 5px;
       border: 1px solid $secondary;
       border-radius: 8px;
-      max-width: 400px;
       .title {
         display: flex;
-        justify-content: space-between;
+        justify-content: center;
         align-items: center;
-        padding: 5px;
-        .expander {
+        padding: 8px;
+        margin: 0 5px;
+        .info {
           display: flex;
           cursor: pointer;
-          color: $secondary;
           font-weight: bolder;
-          flex-grow: 1;
-          justify-content: flex-end;
+          flex-grow: 0;
+          .btn {
+            display: flex;
+            justify-content: center;
+            background: transparent;
+            border-style: none;
+            .info-circle {
+              width: 28px;
+              color: $secondary;
+            }
+          }
         }
         .icon {
           width: 30px;
         }
       }
-      .content {
+      .app {
         display: flex;
         flex-direction: column;
-        justify-content: space-around;
-        align-items: start;
-        padding: 0 5px;
-        max-height: 0;
-        overflow: hidden;
-        transition: all 0.5s cubic-bezier(0,1,0,1);
-      }
-      .content.show {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-around;
-        align-items: start;
-        padding: 0 5px;
+        align-items: flex-start;
+        flex-grow: 1;;
+        padding: 0 10px;
+      &:hover {
         max-height: 1000px;
         transition: all 0.5s cubic-bezier(1,0,1,0);
-        .details {
-          color: $secondary;
-          font-weight: lighter;
-          padding: 5px 0;
         }
       }
     }
-  }
-}
-
-button {
-  font-family: $font;
-  font-weight: 600;
-  font-size: 14px;
-  outline: none;
-  border: 1px solid $primary;
-  background-color: transparent;
-  color: $white;
-  border-radius: 3px;
-  padding: 0.5rem 0.25rem;
-  width: 10rem;
-  display: flex;
-  flex-wrap: wrap;
-  flex-grow: 0;
-  flex-shrink: 0;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-  &:hover:enabled {
-    background-color: $secondary;
-    border-color: $secondary;
-    &:active {
-      background-color: $primary;
-      border-color: $primary;
-    }
-  }
-  &:disabled {
-    border-color: $disabled;
-    background-color: $disabled;
-    cursor: not-allowed;
   }
 }
 
@@ -128,9 +100,9 @@ li {
 a, a:visited {
   text-decoration: none;
   color: $white;
-}
-a:hover {
-  font-weight: bold;
+  font-weight: normal;
 }
 
-
+.dialog {
+    @include dialog($background);
+}
