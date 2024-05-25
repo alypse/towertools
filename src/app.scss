@@ -13,105 +13,89 @@ body {
   @include container($secondary);
   display: flex;
   flex-direction: column;
-  padding: 5px;
   justify-content: flex-start;
-  align-items: stretch;
+  align-items: center;
   .nav {
     @include container($secondary);
     display: flex;
+    justify-content: center;
     button {
-      width: 8rem;
-      margin: 5px;
+      width: 4rem;
+      border: 1px solid $primary;
+      border-radius: 8px;
+      background-color: $background;
+      color: $white;
+      padding: 8px 8px;
+      &:hover {
+        border-color: $success;
+      }
+      &:active {
+        border-color: $hover;
+      }
     }
 
-    @media (max-width: 600px) {
+    @media (max-width: 400px) {
       flex-direction: column;
     }
   }
   .list {
     @include container($primary);
     display: flex;
+    max-width: 400px;
+    width: 60%;
     flex-direction: column;
-    padding: 10px;
-    .item {
+    align-items: center;
+    padding: 3px;
+    .panel {
       display: flex;
       flex-direction: column;
-      justify-content: center;
-      padding: 5px;
+      place-self: stretch;
+      //padding: 8px;
       margin: 5px;
+      border: 2px solid $secondary;
+      border-radius: 8px;
       .title {
         display: flex;
-        justify-content: space-between;
+        justify-content: flex-end;
         align-items: center;
+        margin: 0 5px;
         padding: 5px;
-
-        .expander {
+        border-bottom: 1px solid $secondary;
+        .info {
           display: flex;
+          justify-content: center;
           cursor: pointer;
-          color: $secondary;
           font-weight: bolder;
-          flex-grow: 1;
-          justify-content: flex-end;
+          flex-grow: 0;
+          margin: 10px;
+          .btn {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: transparent;
+            border-style: none;
+            .info-circle {
+              width: 28px;
+              filter: drop-shadow(0 0 0.15rem $hover);
+            }
+          }
+        }
+        .icon {
+          width: 30px;
         }
       }
-      .content {
+      .app {
         display: flex;
         flex-direction: column;
-        justify-content: space-around;
-        align-items: start;
-        padding: 0 5px;
-        max-height: 0;
-        overflow: hidden;
-        transition: all 0.5s cubic-bezier(0,1,0,1);
-      }
-      .content.show {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-around;
-        align-items: start;
-        padding: 0 5px;
+        align-items: flex-start;
+        flex-grow: 1;;
+        padding: 0 10px;
+      &:hover {
         max-height: 1000px;
         transition: all 0.5s cubic-bezier(1,0,1,0);
-        .details {
-          color: $secondary;
-          font-weight: lighter;
-          padding: 5px 0;
         }
       }
     }
-  }
-}
-
-button {
-  font-family: $font;
-  font-weight: 600;
-  font-size: 14px;
-  outline: none;
-  border: 1px solid $primary;
-  background-color: transparent;
-  color: $white;
-  border-radius: 3px;
-  padding: 0.5rem 0.25rem;
-  width: 10rem;
-  display: flex;
-  flex-wrap: wrap;
-  flex-grow: 0;
-  flex-shrink: 0;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-  &:hover:enabled {
-    background-color: $secondary;
-    border-color: $secondary;
-    &:active {
-      background-color: $primary;
-      border-color: $primary;
-    }
-  }
-  &:disabled {
-    border-color: $disabled;
-    background-color: $disabled;
-    cursor: not-allowed;
   }
 }
 
@@ -119,14 +103,12 @@ li {
   list-style-type: none;
 }
 
-a {
-  text-decoration: underline;
-  color: $secondary;
-}
-a:hover {
-  text-decoration: underline;
-}
-a:visited {
-  color: $secondary;
+a, a:visited {
+  text-decoration: none;
+  color: $white;
+  font-weight: normal;
 }
 
+.dialog {
+    @include dialog($background);
+}
