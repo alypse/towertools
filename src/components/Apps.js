@@ -8,7 +8,7 @@ import { PanelApps } from "./PanelApps.js";
 export function Apps() {
     return (
         <div className="list">
-            {APPLIST.apps.map((app, i) => (
+            {APPLIST.apps.map((app) => (
                 <div className='panel' key={app.id}>
                     <PanelApps app={app}/>
                 </div>

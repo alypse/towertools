@@ -15,7 +15,7 @@ const Main = () => {
     return (
         <div id='main'>
             <div className='nav'>
-                {Object.entries(VIEWS).map(([key, value]) => (
+                {Object.entries(VIEWS).map(([key,value]) => (
                     <button key={key} type='button' value={value} onClick={setView}>
                         {capitalizeAll(value)}
                     </button>
