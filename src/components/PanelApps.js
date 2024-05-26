@@ -13,7 +13,7 @@ export function PanelApps({app}) {
                 <img className='icon' src={app.icon} alt={app.name}/>
                 <a className='app' href={app.url} target="_blank" rel="noreferrer">{app.name}</a>
                 <div className='info'>
-                    <button className='btn' onClick={() => open()}>
+                    <button className='btn' onClick={() => showDialog ? close() : open()}>
                         <img src={infoCircle} className='info-circle' alt='appinfo'/>
                     </button>
                 </div>

@@ -12,7 +12,7 @@ export function PanelGuides({guide}) {
             <div className='title'>
                 <a className='app' href={guide.url} target="_blank" rel="noreferrer">{guide.name}</a>
                 <div className='info'>
-                    <button className='btn' onClick={() => open()}>
+                    <button className='btn' onClick={() => showDialog ? close() : open()}>
                         <img src={infoCircle} className='info-circle' alt='appinfo'/>
                     </button>
                 </div>
