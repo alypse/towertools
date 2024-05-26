@@ -7,7 +7,7 @@ export function Guides() {
 
     return (
         <div className="list">
-            {GUIDELIST.guides.map((guide, i) => (
+            {GUIDELIST.guides.map((guide) => (
                 <div className='panel' key={guide.id}>
                     <PanelGuides guide={guide}/>
                 </div>
