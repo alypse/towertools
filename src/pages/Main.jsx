@@ -7,7 +7,7 @@ import React from "react";
 
 export const VIEWS = {
     APPS: 'Apps',
-    GUIDES: 'Guides'
+    GUIDES: 'Guides',
 }
 
 const Main = () => {

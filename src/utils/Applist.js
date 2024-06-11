@@ -85,6 +85,15 @@ export const APPLIST = {
         },
         {
             "id": 9,
+            "name": "Tournament Results",
+            "icon": require("../assets/apps/thetowerlol.png"),
+            "description": "Tournament results for The Tower.",
+            "url": "https://thetower.lol/",
+            "author": "this_guy",
+            "status": "supported"
+        },
+        {
+            "id": 10,
             "name": "Multiverse Calculator",
             "icon": require("../assets/apps/mvn.webp"),
             "description": "Calculate the synchronized cooldowns with Multiverse Nexus Core Module, including mod and substat qualities.",
