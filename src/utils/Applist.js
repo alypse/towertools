@@ -9,7 +9,7 @@ export const APPLIST = {
             "description": "Consult this before picking any UW for an up to date suggestion on which one you should pick given your current owned UW and options, as well as a description of the use of each UW, their + upgrades, and important module synergies.",
             "url": "https://what-uw-should-i-pick.netlify.app/",
             "author": "Skye",
-            "status": "supported"
+            "status": "Supported"
         },
         {
             "id": 1,
@@ -18,7 +18,7 @@ export const APPLIST = {
             "description": "Use this to track your farm runs and figure out where you should be farming, as well as graph/analyze phases during the course of a run to optimize individual phases.",
             "url": "https://what-tier-should-i-farm.netlify.app/",
             "author": "Skye",
-            "status": "supported"
+            "status": "Supported"
         },
         {
             "id": 2,
@@ -27,7 +27,7 @@ export const APPLIST = {
             "description": "Check enemy stats at any wave in any tier, and quickly figure out what wave has comparable stats in other tiers.",
             "url": "https://tower-enemy-stats.netlify.app/",
             "author": "Skye",
-            "status": "supported"
+            "status": "Supported"
         },
         {
             "id": 3,
@@ -36,7 +36,7 @@ export const APPLIST = {
             "description": "Look up lab costs, plan out your entire lab progress, optimize how far to run your lab speed. Use \"Show Costs\" to look at Lab Speed/Discount labs or to look at times with Speedup applied.",
             "url": "https://tower-lab-calculator.netlify.app/",
             "author": "Skye",
-            "status": "supported"
+            "status": "Supported"
         },
         {
             "id": 4,
@@ -45,7 +45,7 @@ export const APPLIST = {
             "description": "Look up / calculate the cost for workshop upgrades and workshop enhancements. Figure out which upgrade will save you the most cash to max everything per coin spent. See a quick overview to share your build with others and see a breakdown of how many coins you've spent. This helps plan your Coin spend in your workshop.",
             "url": "https://tower-workshop-calculator.netlify.app/",
             "author": "Skye",
-            "status": "supported"
+            "status": "Supported"
         },
         {
             "id": 5,
@@ -54,7 +54,7 @@ export const APPLIST = {
             "description": "Look up and compare module costs and values between various levels at each rarity, figure out how long it will take you to level them up, see how high they would be with a different shard discount, and calculate weekly shard income.",
             "url": "https://tower-module-calculator.netlify.app/",
             "author": "Skye",
-            "status": "supported"
+            "status": "Supported"
         },
         {
             "id": 6,
@@ -63,7 +63,7 @@ export const APPLIST = {
             "description": "Calculate the cost and time it will take to upgrade your UW to various levels, look at tables of their overall costs, look at UW+ upgrade costs, see how much you've spent on each thing, calculate GT+ Combo bonus, and compare ROI of each GT+ level.",
             "url": "https://tower-stone-calculator.netlify.app/",
             "author": "Skye",
-            "status": "supported"
+            "status": "Supported"
         },
         {
             "id": 7,
@@ -72,7 +72,7 @@ export const APPLIST = {
             "description": "Calculate the cost and time it will take to upgrade your bots to various levels and see how much you've spent.",
             "url": "https://tower-bot-calculator.netlify.app/",
             "author": "Skye",
-            "status": "supported"
+            "status": "Supported"
         },
         {
             "id": 8,
@@ -81,7 +81,7 @@ export const APPLIST = {
             "description": "Estimate your cell income on each tier to compare which one is better, optimize when to take off Wave Skip to maximize cell income, look at cells/kill upgrade breakpoints for each tier (not every level actually increases how much you gain!), and simulate cell farming results.",
             "url": "https://tower-cell-calculator.netlify.app/",
             "author": "Skye",
-            "status": "supported"
+            "status": "Supported"
         },
         {
             "id": 9,
@@ -90,7 +90,7 @@ export const APPLIST = {
             "description": "Tournament results for The Tower.",
             "url": "https://thetower.lol/",
             "author": "this_guy",
-            "status": "supported"
+            "status": "Supported"
         },
         {
             "id": 10,
@@ -99,7 +99,16 @@ export const APPLIST = {
             "description": "Calculate the synchronized cooldowns with Multiverse Nexus Core Module, including mod and substat qualities.",
             "url": "https://multiverse-nexus-calculator.netlify.app/",
             "author": "Alypse",
-            "status": "supported"
+            "status": "Supported"
         },
+        {
+            "id": 11,
+            "name": "Card Tracker",
+            "icon": require("../assets/apps/cards.webp"),
+            "description": "Track your card collection, see how many gems have been spent and are remaining to spend on cards.",
+            "url": "https://tower-card-tracker.vercel.app/",
+            "author": "Hazy",
+            "status": "Supported"
+        }
     ]
 }
