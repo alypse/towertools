@@ -18,25 +18,12 @@ export function PanelApps({app}) {
                     </button>
                 </div>
             </div>
-                {showDialog && (
-                    <div className='dialog' onClick={() => close()}>
-                        <div className='details'>Created by {app.author}</div>
-                        <div className='description'>{app.description}</div>
-                    </div>
-                )}
+            {showDialog && (
+                <div className='dialog' onClick={() => close()}>
+                    <div className='details'>Created by {app.author}</div>
+                    <div className='description'>{app.description}</div>
+                </div>
+            )}
         </div>
     );
 }
-
-// <div className='item' key={guide.id}>
-//     <div className='title'>
-//         <a className='app' href={guide.url} target="_blank" rel="noreferrer">{guide.name}</a>
-//         <div className='expander' onClick={() => toggle(i)}>
-//             {expanded === i ? '' : '+'}
-//         </div>
-//     </div>
-//     <div className={expanded === i ? 'content show' : 'content'}>
-//         <div className='description'>{guide.description}</div>
-//         <div className='details'>Author: {guide.author}</div>
-//     </div>
-// </div>

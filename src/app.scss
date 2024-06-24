@@ -25,12 +25,10 @@ body {
       border-radius: 8px;
       background-color: $background;
       color: $white;
+      font-weight: bold;
       padding: 8px 8px;
       &:hover {
-        border-color: $success;
-      }
-      &:active {
-        border-color: $hover;
+        background-color: $hover;
       }
     }
 
@@ -41,18 +39,23 @@ body {
   .list {
     @include container($primary);
     display: flex;
+    flex-wrap: wrap;
     width: 80%;
-    max-width: 300px;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
+    justify-content: center;
     padding: 3px;
     .panel {
       display: flex;
+      width: 280px;
       flex-direction: column;
       place-self: stretch;
       margin: 5px;
       border: 2px solid $secondary;
       border-radius: 8px;
+      &:hover {
+        border-color: $hover;
+      }
       .title {
         display: flex;
         justify-content: flex-end;

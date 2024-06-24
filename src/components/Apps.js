@@ -1,8 +1,6 @@
 import './Apps.scss';
-import { APPLIST } from "../utils/Applist.js";
-import { PanelApps } from "./PanelApps.js";
-
-// APPLIST.apps.map(app => require(app.icon));  todo: figure out how to require all icons
+import {APPLIST} from "../utils/Applist.js";
+import {PanelApps} from "./PanelApps.js";
 
 
 export function Apps() {

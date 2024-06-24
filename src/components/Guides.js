@@ -1,6 +1,6 @@
 import './Guides.scss';
 import {GUIDELIST} from "../utils/Guidelist.js";
-import { PanelGuides } from "./PanelGuides.js";
+import {PanelGuides} from "./PanelGuides.js";
 
 
 export function Guides() {
