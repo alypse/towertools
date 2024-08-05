@@ -109,6 +109,15 @@ export const APPLIST = {
             "url": "https://tower-card-tracker.vercel.app/",
             "author": "Hazy",
             "status": "Supported"
+        },
+        {
+            "id": 12,
+            "name": "Lab-Speedup Calculator",
+            "icon": require("../assets/apps/lsc.webp"),
+            "description": "Experiment with different lab speed-up setups and find out how many cells it will cost.",
+            "url": "https://tower-lab-speedup-calc.vercel.app/",
+            "author": "Hazy",
+            "status": "Supported"
         }
     ]
 }
