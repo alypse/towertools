@@ -23,5 +23,12 @@ export const GUIDELIST = {
             "url": "https://docs.google.com/document/d/e/2PACX-1vSk0skb2Dyu5PlSDF6FBvpn7SSWW1q9v3yThIInBpoGcywHrPLEjtwGDvGlZHgTAHNS9A6EKN3G5X6S/pub",
             "author": "Skye"
         },
+        {
+            "id": 3,
+            "name": "McBlue’s Practical Guide to The Tower",
+            "description": "A quick-start guide to The Tower",
+            "url": "https://docs.google.com/document/d/19bh1fFV6u3BNSOuCkIo1o1UdO5QyFxCZZBasO1VKZI8/edit?usp=sharing",
+            "author": "McBlue"
+        },
     ]
 }
