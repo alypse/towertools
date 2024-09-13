@@ -78,7 +78,7 @@ export const APPLIST = {
             "id": 8,
             "name": "Cell Calculator",
             "icon": require("../assets/apps/cell.webp"),
-            "description": "Estimate your cell income on each tier to compare which one is better, optimize when to take off Wave Skip to maximize cell income, look at cells/kill upgrade breakpoints for each tier (not every level actually increases how much you gain!), and simulate cell farming results.",
+            "description": "Estimate your cell income on each tier to compare which one is better, analyze cells/kill roi, and simulate cell farming results.",
             "url": "https://tower-cell-calculator.netlify.app/",
             "author": "Skye",
             "status": "Supported"
