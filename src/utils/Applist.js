@@ -4,6 +4,15 @@ export const APPLIST = {
     "apps": [
         {
             "id": 0,
+            "name": "Skye's Tool Thread",
+            "icon": require("../assets/apps/towerstar.webp"),
+            "description": "Skye's Tool Thread - The source of trurth for all things Tower and Skye! CDs nutz gottem.",
+            "url": "https://discord.com/channels/850137217828388904/1241233346894364813/1241233350782353408",
+            "author": "Skye",
+            "status": "Supported"
+        },
+        {
+            "id": 13,
             "name": "What UW Should I Pick?",
             "icon": require("../assets/apps/uw.webp"),
             "description": "Consult this before picking any UW for an up to date suggestion on which one you should pick given your current owned UW and options, as well as a description of the use of each UW, their + upgrades, and important module synergies.",
