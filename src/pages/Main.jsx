@@ -25,6 +25,7 @@ const Main = () => {
             </div>
             {view === VIEWS.APPS && <Apps/>}
             {view === VIEWS.GUIDES && <Guides/>}
+            <p style={{margin: '10px', fontSize: 'smaller'}}>Inspired by Skye, created by Alypse. Thank you, Skye!</p>
         </div>
     );
 };
