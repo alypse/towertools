@@ -112,7 +112,7 @@ export const APPLIST = {
       name: 'Multiverse Calculator',
       icon: require('../assets/apps/mvn.webp'),
       description: 'Calculate the synchronized cooldowns with Multiverse Nexus Core Module, including mod and substat qualities.',
-      url: 'https://multiverse-nexus-calculator.netlify.app/',
+      url: 'https://mvn.thetower.tools/',
       author: 'Alypse',
       status: 'Supported',
     },
