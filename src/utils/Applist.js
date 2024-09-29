@@ -1,132 +1,147 @@
 export const APPLIST = {
-    "name": "Apps",
-    "description": "A collection of useful web apps for The Tower.",
-    "apps": [
-        {
-            "id": 0,
-            "name": "Skye's Tool Thread",
-            "icon": require("../assets/apps/towerstar.webp"),
-            "description": "Skye's Tool Thread - The source of trurth for all things Tower and Skye! CDs nutz gottem.",
-            "url": "https://discord.com/channels/850137217828388904/1241233346894364813/1241233350782353408",
-            "author": "Skye",
-            "status": "Supported"
-        },
-        {
-            "id": 13,
-            "name": "What UW Should I Pick?",
-            "icon": require("../assets/apps/uw.webp"),
-            "description": "Consult this before picking any UW for an up to date suggestion on which one you should pick given your current owned UW and options, as well as a description of the use of each UW, their + upgrades, and important module synergies.",
-            "url": "https://what-uw-should-i-pick.netlify.app/",
-            "author": "Skye",
-            "status": "Supported"
-        },
-        {
-            "id": 1,
-            "name": "What Tier Should I Farm?",
-            "icon": require("../assets/apps/coin.webp"),
-            "description": "Use this to track your farm runs and figure out where you should be farming, as well as graph/analyze phases during the course of a run to optimize individual phases.",
-            "url": "https://what-tier-should-i-farm.netlify.app/",
-            "author": "Skye",
-            "status": "Supported"
-        },
-        {
-            "id": 2,
-            "name": "Enemy Stats Calculator",
-            "icon": require("../assets/apps/boss.webp"),
-            "description": "Check enemy stats at any wave in any tier, and quickly figure out what wave has comparable stats in other tiers.",
-            "url": "https://tower-enemy-stats.netlify.app/",
-            "author": "Skye",
-            "status": "Supported"
-        },
-        {
-            "id": 3,
-            "name": "Lab Calculator",
-            "icon": require("../assets/apps/lab.webp"),
-            "description": "Look up lab costs, plan out your entire lab progress, optimize how far to run your lab speed. Use \"Show Costs\" to look at Lab Speed/Discount labs or to look at times with Speedup applied.",
-            "url": "https://tower-lab-calculator.netlify.app/",
-            "author": "Skye",
-            "status": "Supported"
-        },
-        {
-            "id": 4,
-            "name": "Workshop Calculator",
-            "icon": require("../assets/apps/ws.webp"),
-            "description": "Look up / calculate the cost for workshop upgrades and workshop enhancements. Figure out which upgrade will save you the most cash to max everything per coin spent. See a quick overview to share your build with others and see a breakdown of how many coins you've spent. This helps plan your Coin spend in your workshop.",
-            "url": "https://tower-workshop-calculator.netlify.app/",
-            "author": "Skye",
-            "status": "Supported"
-        },
-        {
-            "id": 5,
-            "name": "Module Calculator",
-            "icon": require("../assets/apps/mods.webp"),
-            "description": "Look up and compare module costs and values between various levels at each rarity, figure out how long it will take you to level them up, see how high they would be with a different shard discount, and calculate weekly shard income.",
-            "url": "https://tower-module-calculator.netlify.app/",
-            "author": "Skye",
-            "status": "Supported"
-        },
-        {
-            "id": 6,
-            "name": "Stone Calculator",
-            "icon": require("../assets/apps/stone.webp"),
-            "description": "Calculate the cost and time it will take to upgrade your UW to various levels, look at tables of their overall costs, look at UW+ upgrade costs, see how much you've spent on each thing, calculate GT+ Combo bonus, and compare ROI of each GT+ level.",
-            "url": "https://tower-stone-calculator.netlify.app/",
-            "author": "Skye",
-            "status": "Supported"
-        },
-        {
-            "id": 7,
-            "name": "Bot Calculator",
-            "icon": require("../assets/apps/bot.webp"),
-            "description": "Calculate the cost and time it will take to upgrade your bots to various levels and see how much you've spent.",
-            "url": "https://tower-bot-calculator.netlify.app/",
-            "author": "Skye",
-            "status": "Supported"
-        },
-        {
-            "id": 8,
-            "name": "Cell Calculator",
-            "icon": require("../assets/apps/cell.webp"),
-            "description": "Estimate your cell income on each tier to compare which one is better, analyze cells/kill roi, and simulate cell farming results.",
-            "url": "https://tower-cell-calculator.netlify.app/",
-            "author": "Skye",
-            "status": "Supported"
-        },
-        {
-            "id": 9,
-            "name": "Tournament Results",
-            "icon": require("../assets/apps/thetowerlol.png"),
-            "description": "Tournament results for The Tower.",
-            "url": "https://thetower.lol/",
-            "author": "this_guy",
-            "status": "Supported"
-        },
-        {
-            "id": 10,
-            "name": "Multiverse Calculator",
-            "icon": require("../assets/apps/mvn.webp"),
-            "description": "Calculate the synchronized cooldowns with Multiverse Nexus Core Module, including mod and substat qualities.",
-            "url": "https://multiverse-nexus-calculator.netlify.app/",
-            "author": "Alypse",
-            "status": "Supported"
-        },
-        {
-            "id": 11,
-            "name": "Card Tracker",
-            "icon": require("../assets/apps/cards.webp"),
-            "description": "Track your card collection, see how many gems have been spent and are remaining to spend on cards.",
-            "url": "https://tower-card-tracker.vercel.app/",
-            "author": "Hazy",
-            "status": "Supported"
-        },
-        {
-            "id": 12,
-            "name": "Lab-Speedup Calculator",
-            "icon": require("../assets/apps/lsc.webp"),
-            "description": "Experiment with different lab speed-up setups and find out how many cells it will cost.",
-            "url": "https://tower-lab-speedup-calc.vercel.app/",
-            "author": "Hazy",
-            "status": "Supported"
-        }
-    ]
-}
+  name: 'Apps',
+  description: 'A collection of useful web apps for The Tower.',
+  apps: [
+    {
+      id: 0,
+      name: "Skye's Tool Thread",
+      icon: require('../assets/apps/towerstar.webp'),
+      description: "Skye's Tool Thread - The source of trurth for all things Tower and Skye! CDs nutz gottem.",
+      url: 'https://discord.com/channels/850137217828388904/1241233346894364813/1241233350782353408',
+      author: 'Skye',
+      status: 'Supported',
+    },
+    {
+      id: 13,
+      name: 'What UW Should I Pick?',
+      icon: require('../assets/apps/uw.webp'),
+      description:
+        'Consult this before picking any UW for an up to date suggestion on which one you should pick given your current owned UW and options, as well as a description of the use of each UW, their + upgrades, and important module synergies.',
+      url: 'https://what-uw-should-i-pick.netlify.app/',
+      author: 'Skye',
+      status: 'Supported',
+    },
+    {
+      id: 1,
+      name: 'What Tier Should I Farm?',
+      icon: require('../assets/apps/coin.webp'),
+      description:
+        'Use this to track your farm runs and figure out where you should be farming, as well as graph/analyze phases during the course of a run to optimize individual phases.',
+      url: 'https://what-tier-should-i-farm.netlify.app/',
+      author: 'Skye',
+      status: 'Supported',
+    },
+    {
+      id: 2,
+      name: 'Enemy Stats Calculator',
+      icon: require('../assets/apps/boss.webp'),
+      description: 'Check enemy stats at any wave in any tier, and quickly figure out what wave has comparable stats in other tiers.',
+      url: 'https://tower-enemy-stats.netlify.app/',
+      author: 'Skye',
+      status: 'Supported',
+    },
+    {
+      id: 3,
+      name: 'Lab Calculator',
+      icon: require('../assets/apps/lab.webp'),
+      description:
+        'Look up lab costs, plan out your entire lab progress, optimize how far to run your lab speed. Use "Show Costs" to look at Lab Speed/Discount labs or to look at times with Speedup applied.',
+      url: 'https://tower-lab-calculator.netlify.app/',
+      author: 'Skye',
+      status: 'Supported',
+    },
+    {
+      id: 4,
+      name: 'Workshop Calculator',
+      icon: require('../assets/apps/ws.webp'),
+      description:
+        "Look up / calculate the cost for workshop upgrades and workshop enhancements. Figure out which upgrade will save you the most cash to max everything per coin spent. See a quick overview to share your build with others and see a breakdown of how many coins you've spent. This helps plan your Coin spend in your workshop.",
+      url: 'https://tower-workshop-calculator.netlify.app/',
+      author: 'Skye',
+      status: 'Supported',
+    },
+    {
+      id: 5,
+      name: 'Module Calculator',
+      icon: require('../assets/apps/mods.webp'),
+      description:
+        'Look up and compare module costs and values between various levels at each rarity, figure out how long it will take you to level them up, see how high they would be with a different shard discount, and calculate weekly shard income.',
+      url: 'https://tower-module-calculator.netlify.app/',
+      author: 'Skye',
+      status: 'Supported',
+    },
+    {
+      id: 6,
+      name: 'Stone Calculator',
+      icon: require('../assets/apps/stone.webp'),
+      description:
+        "Calculate the cost and time it will take to upgrade your UW to various levels, look at tables of their overall costs, look at UW+ upgrade costs, see how much you've spent on each thing, calculate GT+ Combo bonus, and compare ROI of each GT+ level.",
+      url: 'https://tower-stone-calculator.netlify.app/',
+      author: 'Skye',
+      status: 'Supported',
+    },
+    {
+      id: 7,
+      name: 'Bot Calculator',
+      icon: require('../assets/apps/bot.webp'),
+      description: "Calculate the cost and time it will take to upgrade your bots to various levels and see how much you've spent.",
+      url: 'https://tower-bot-calculator.netlify.app/',
+      author: 'Skye',
+      status: 'Supported',
+    },
+    {
+      id: 8,
+      name: 'Cell Calculator',
+      icon: require('../assets/apps/cell.webp'),
+      description: 'Estimate your cell income on each tier to compare which one is better, analyze cells/kill roi, and simulate cell farming results.',
+      url: 'https://tower-cell-calculator.netlify.app/',
+      author: 'Skye',
+      status: 'Supported',
+    },
+    {
+      id: 9,
+      name: 'Tournament Results',
+      icon: require('../assets/apps/thetowerlol.png'),
+      description: 'Tournament results for The Tower.',
+      url: 'https://thetower.lol/',
+      author: 'this_guy',
+      status: 'Supported',
+    },
+    {
+      id: 10,
+      name: 'Multiverse Calculator',
+      icon: require('../assets/apps/mvn.webp'),
+      description: 'Calculate the synchronized cooldowns with Multiverse Nexus Core Module, including mod and substat qualities.',
+      url: 'https://multiverse-nexus-calculator.netlify.app/',
+      author: 'Alypse',
+      status: 'Supported',
+    },
+    {
+      id: 11,
+      name: 'Card Tracker',
+      icon: require('../assets/apps/cards.webp'),
+      description: 'Track your card collection, see how many gems have been spent and are remaining to spend on cards.',
+      url: 'https://tower-card-tracker.vercel.app/',
+      author: 'Hazy',
+      status: 'Supported',
+    },
+    {
+      id: 12,
+      name: 'Lab-Speedup Calculator',
+      icon: require('../assets/apps/lsc.webp'),
+      description: 'Experiment with different lab speed-up setups and find out how many cells it will cost.',
+      url: 'https://tower-lab-speedup-calc.vercel.app/',
+      author: 'Hazy',
+      status: 'Supported',
+    },
+    {
+      id: 13,
+      name: 'Module Tracker',
+      icon: require('../assets/apps/module-tracker.webp'),
+      description: 'Track your modules statistics and gems spent.',
+      url: 'https://tower-module-tracker.vercel.app/',
+      author: 'Hazy',
+      status: 'Supported',
+    },
+  ],
+};
