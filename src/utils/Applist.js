@@ -151,6 +151,15 @@ export const APPLIST = {
       url: 'https://tower-lab-planner.vercel.app/',
       author: 'Hazy',
       status: 'Supported',
-    }
+    },
+    {
+      id: 15,
+      name: 'Enemy Level Skip Simulator',
+      icon: require('../assets/apps/els_simulator.webp'),
+      description: 'Simulate Enemy Level Skips for a run to get an accurate idea of how many skips to expect.  Accounts for freeups, cash purchased levels, and more.',
+      url: 'https://tower-workshop-planner.vercel.app/',
+      author: 'Andy1292',
+      status: 'Supported',
+    },
   ],
 };
