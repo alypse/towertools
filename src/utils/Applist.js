@@ -143,5 +143,14 @@ export const APPLIST = {
       author: 'Hazy',
       status: 'Supported',
     },
+    {
+      id: 14,
+      name: 'Lab Planner',
+      icon: require('../assets/apps/lab_planner.webp'),
+      description: 'Plan your lab time in advance to counter goldfish memory issues!',
+      url: 'https://tower-lab-planner.vercel.app/',
+      author: 'Hazy',
+      status: 'Supported',
+    }
   ],
 };
