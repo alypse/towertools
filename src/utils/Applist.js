@@ -157,7 +157,7 @@ export const APPLIST = {
       name: 'Enemy Level Skip Simulator',
       icon: require('../assets/apps/els_simulator.webp'),
       description: 'Simulate Enemy Level Skips for a run to get an accurate idea of how many skips to expect.  Accounts for freeups, cash purchased levels, and more.',
-      url: 'https://tower-workshop-planner.vercel.app/',
+      url: 'https://towerels.pythonanywhere.com/',
       author: 'Andy1292',
       status: 'Supported',
     },
