@@ -187,7 +187,6 @@ export const APPLIST = {
       description: 'Calculate and plan the substats of your mods.',
       url: 'https://substat-calculator.netlify.app/',
       author: 'Zanny',
-      type: 'app',
       status: 'Supported',
     },
   ],
