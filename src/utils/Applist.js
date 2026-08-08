@@ -15,7 +15,6 @@ import thetowerlolIcon from '../assets/apps/thetowerlol.png';
 import towerstarIcon from '../assets/apps/towerstar.webp';
 import uwIcon from '../assets/apps/uw.webp';
 import wsIcon from '../assets/apps/ws.webp';
-import diceIcon from '../assets/apps/dice.png';
 
 export const APPLIST = {
   name: 'Apps',
@@ -24,7 +23,7 @@ export const APPLIST = {
       id: 0,
       name: "Skye's Tool Thread",
       icon: towerstarIcon,
-      description: "Skye's Tool Thread - The source of trurth for all things Tower and Skye! CDs nutz gottem.",
+      description: "Skye's Tool Thread - The source of truth for all things Tower and Skye! CDs nutz gottem.",
       url: 'https://discord.com/channels/850137217828388904/1241233346894364813/1241233350782353408',
       author: 'Skye',
       status: 'Supported',
@@ -178,15 +177,6 @@ export const APPLIST = {
       description: 'Track your modules statistics and gems spent.',
       url: 'https://tower-module-tracker.vercel.app/',
       author: 'Hazy',
-      status: 'Supported',
-    },
-    {
-      id: 17,
-      name: 'Substat Calculator',
-      icon: diceIcon,
-      description: 'Calculate and plan the substats of your mods.',
-      url: 'https://substat-calculator.netlify.app/',
-      author: 'Zanny',
       status: 'Supported',
     },
   ],
