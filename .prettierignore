@@ -1,0 +1,6 @@
+build
+node_modules
+package-lock.json
+
+# Archived copy of the original Create React App readme; left as-is.
+README.old.md

@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#0b0b0f" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#f7f7fa" media="(prefers-color-scheme: light)" />
+    <meta name="description" content="A collection of community tools, calculators and guides for The Tower." />
+    <link rel="apple-touch-icon" href="/logo192.png" />
+    <link rel="manifest" href="/manifest.json" />
+    <title>Tower Tools</title>
+    <script>
+      // Applies the persisted theme before first paint so there is no flash of
+      // the wrong palette. Mirrors the logic in src/utils/useTheme.js; kept
+      // deliberately small and dependency-free.
+      (function () {
+        try {
+          var raw = localStorage.getItem('theme-1.0');
+          if (!raw) return;
+          var theme = JSON.parse(raw);
+          if (!theme || !theme.mode) return;
+          document.documentElement.setAttribute('data-theme', theme.mode);
+          if (theme.mode === 'rng' && theme.rolled && theme.rolled.tokens) {
+            var tokens = theme.rolled.tokens;
+            for (var name in tokens) {
+              document.documentElement.style.setProperty(name, tokens[name]);
+            }
+          }
+        } catch (e) {
+          // no storage, or malformed value; fall back to the CSS defaults.
+        }
+      })();
+    </script>
+  </head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"></div>
+    <script type="module" src="/src/index.jsx"></script>
+  </body>
+</html>

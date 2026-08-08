@@ -1,0 +1,117 @@
+/**
+ * Design tokens.
+ *
+ * Layered so all three theme states resolve correctly:
+ *   1. `:root`                       — the complete light palette.
+ *   2. `prefers-color-scheme: dark`  — dark overrides, skipped when the user has
+ *                                      explicitly chosen light.
+ *   3. `[data-theme="dark"]`         — the same overrides again, so an explicit
+ *                                      choice beats the OS in both directions.
+ *   4. `[data-theme="rng"]`          — tokens injected at runtime by useTheme.
+ *
+ * Every colour token is given a value in block 1, so nothing is ever undefined.
+ * The token names here are the contract shared with `src/utils/themeRng.js`.
+ */
+
+:root {
+  /* Non-themed tokens */
+  --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji';
+  --font-mono: ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace;
+
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-pill: 999px;
+
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+
+  --max-width: 1400px;
+  --transition: 180ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* Light palette — complete */
+  --bg: #f6f7fb;
+  --bg-soft: #edeff5;
+  --surface: #ffffff;
+  --surface-hover: #f4f6fc;
+  --border: #e1e4ee;
+  --border-strong: #c3c8d8;
+  --text: #14161d;
+  --text-muted: #565d70;
+  --accent: #1d63b5;
+  --accent-end: #6b3fd4;
+  --accent-gradient: linear-gradient(135deg, #1d63b5, #6b3fd4);
+  --accent-contrast: #ffffff;
+  --ring: #1d63b5;
+  --shadow: 0 8px 24px rgba(18, 20, 35, 0.1);
+  --glow: none;
+}
+
+/* Dark overrides, applied only when the user has not pinned light mode. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']):not([data-theme='rng']) {
+    --bg: #0b0b10;
+    --bg-soft: #121219;
+    --surface: #16161f;
+    --surface-hover: #1e1e2a;
+    --border: #272733;
+    --border-strong: #3c3c4c;
+    --text: #f1f2f7;
+    --text-muted: #a3a8bb;
+    --accent: #0ac6fe;
+    --accent-end: #b395fe;
+    --accent-gradient: linear-gradient(135deg, #0ac6fe, #b395fe);
+    --accent-contrast: #04121a;
+    --ring: #0ac6fe;
+    --shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+    --glow: none;
+  }
+}
+
+/* The same overrides as an explicit choice, so the toggle wins either way. */
+:root[data-theme='dark'] {
+  --bg: #0b0b10;
+  --bg-soft: #121219;
+  --surface: #16161f;
+  --surface-hover: #1e1e2a;
+  --border: #272733;
+  --border-strong: #3c3c4c;
+  --text: #f1f2f7;
+  --text-muted: #a3a8bb;
+  --accent: #0ac6fe;
+  --accent-end: #b395fe;
+  --accent-gradient: linear-gradient(135deg, #0ac6fe, #b395fe);
+  --accent-contrast: #04121a;
+  --ring: #0ac6fe;
+  --shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+  --glow: none;
+}
+
+/**
+ * RNG mode. The rolled palette arrives as inline custom properties on the root
+ * element, so this block only needs to exist as a hook — but it repeats the dark
+ * palette as a fallback for the moment between mode selection and the first roll
+ * being applied.
+ */
+:root[data-theme='rng'] {
+  --bg: #0b0b10;
+  --bg-soft: #121219;
+  --surface: #16161f;
+  --surface-hover: #1e1e2a;
+  --border: #272733;
+  --border-strong: #3c3c4c;
+  --text: #f1f2f7;
+  --text-muted: #a3a8bb;
+  --accent: #0ac6fe;
+  --accent-end: #b395fe;
+  --accent-gradient: linear-gradient(135deg, #0ac6fe, #b395fe);
+  --accent-contrast: #04121a;
+  --ring: #0ac6fe;
+  --shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+  --glow: none;
+}

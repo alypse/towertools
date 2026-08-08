@@ -1,18 +1,41 @@
-@import '../variables';
+@use '../variables' as *;
 
+.view-tabs {
+  display: inline-flex;
+  gap: var(--space-1);
+  padding: var(--space-1);
+  background: var(--bg-soft);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-pill);
+  width: fit-content;
 
-//#main {
-//  display: flex;
-//  flex-direction: column;
-//  background: $background;
-//  padding: 5px;
-//  justify-content: flex-start;
-//  align-items: stretch;
-//  .nav {
-//    display: flex;
-//    button { width: 8rem; margin: 5px; }
-//    @media (max-width: 600px) {
-//      flex-direction: column;
-//    }
-//  }
-//}
+  @include below($bp-sm) {
+    width: 100%;
+  }
+}
+
+.view-tabs__tab {
+  @include tap-target;
+  flex: 1;
+  padding: var(--space-2) var(--space-5);
+  border: none;
+  border-radius: var(--radius-pill);
+  background: transparent;
+  color: var(--text-muted);
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition:
+    background var(--transition),
+    color var(--transition);
+
+  &:hover:not(.is-active) {
+    background: var(--surface-hover);
+    color: var(--text);
+  }
+
+  &.is-active {
+    background: var(--accent-gradient);
+    color: var(--accent-contrast);
+    box-shadow: var(--glow);
+  }
+}

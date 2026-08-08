@@ -1,0 +1,157 @@
+@use '../variables' as *;
+
+.panel {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  padding: var(--space-4);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  transition:
+    transform var(--transition),
+    border-color var(--transition),
+    box-shadow var(--transition),
+    background var(--transition);
+
+  &:hover {
+    transform: translateY(-3px);
+    background: var(--surface-hover);
+    border-color: var(--accent);
+    box-shadow: var(--shadow);
+  }
+
+  // Pinned cards get an accent edge so they read as a group at the top.
+  &.is-favourite {
+    border-color: var(--accent);
+    box-shadow: inset 3px 0 0 0 var(--accent);
+  }
+}
+
+.panel__top {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+}
+
+.panel__icon {
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-sm);
+  flex-shrink: 0;
+  object-fit: cover;
+}
+
+.panel__heading {
+  flex: 1;
+  min-width: 0;
+}
+
+.panel__title {
+  font-size: 1rem;
+  font-weight: 650;
+  line-height: 1.3;
+  margin: 0;
+
+  a {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    color: var(--text);
+    transition: color var(--transition);
+
+    &:hover {
+      color: var(--accent);
+    }
+  }
+}
+
+.panel__external {
+  flex-shrink: 0;
+  opacity: 0.5;
+  transition: opacity var(--transition);
+
+  .panel__title a:hover & {
+    opacity: 1;
+  }
+}
+
+.panel__author {
+  margin-top: 2px;
+  color: var(--text-muted);
+  font-size: 0.8rem;
+}
+
+.panel__pin {
+  @include tap-target;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  padding: 0;
+  border: none;
+  border-radius: var(--radius-sm);
+  background: transparent;
+  color: var(--text-muted);
+  transition:
+    color var(--transition),
+    background var(--transition);
+
+  &:hover {
+    background: var(--bg-soft);
+    color: var(--accent);
+  }
+
+  &[aria-pressed='true'] {
+    color: var(--accent);
+  }
+}
+
+.panel__description {
+  color: var(--text-muted);
+  font-size: 0.875rem;
+  line-height: 1.55;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  overflow: hidden;
+
+  &.is-expanded {
+    -webkit-line-clamp: unset;
+    line-clamp: unset;
+    overflow: visible;
+  }
+}
+
+.panel__foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2);
+  margin-top: auto;
+}
+
+.panel__more {
+  padding: var(--space-1) 0;
+  border: none;
+  background: transparent;
+  color: var(--accent);
+  font-size: 0.8rem;
+  font-weight: 600;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.panel__badge {
+  padding: 2px var(--space-2);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-pill);
+  color: var(--text-muted);
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
