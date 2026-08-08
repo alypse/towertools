@@ -89,6 +89,42 @@ describe('toolbar', () => {
   });
 });
 
+describe('theme selector placement', () => {
+  // jsdom never matches a media query on its own, so the wide layout has to be
+  // stubbed to exercise the branch that lifts the selector into the sticky bar.
+  const stubMatchMedia = matches => {
+    const original = window.matchMedia;
+    window.matchMedia = () => ({ matches, addEventListener: () => {}, removeEventListener: () => {} });
+    return () => {
+      window.matchMedia = original;
+    };
+  };
+
+  const themeGroup = () => screen.getByRole('group', { name: 'Colour theme' });
+
+  it('sits in the view bar beside the tabs on wide screens', () => {
+    const restore = stubMatchMedia(true);
+    render(<App />);
+
+    const bar = document.querySelector('.view-bar');
+    expect(bar).toContainElement(themeGroup());
+    expect(within(bar).getByRole('button', { name: 'Guides' })).toBeInTheDocument();
+    expect(document.getElementById('site-controls')).not.toContainElement(themeGroup());
+
+    restore();
+  });
+
+  it('drops into the collapsible options panel on narrow screens', () => {
+    const restore = stubMatchMedia(false);
+    render(<App />);
+
+    expect(document.getElementById('site-controls')).toContainElement(themeGroup());
+    expect(document.querySelector('.view-bar')).not.toContainElement(themeGroup());
+
+    restore();
+  });
+});
+
 describe('options panel', () => {
   const panel = () => document.getElementById('site-controls');
 

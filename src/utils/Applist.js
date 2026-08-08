@@ -15,10 +15,10 @@ import thetowerlolIcon from '../assets/apps/thetowerlol.png';
 import towerstarIcon from '../assets/apps/towerstar.webp';
 import uwIcon from '../assets/apps/uw.webp';
 import wsIcon from '../assets/apps/ws.webp';
+import diceIcon from '../assets/apps/dice.png';
 
 export const APPLIST = {
   name: 'Apps',
-  description: 'A collection of useful web apps for The Tower.',
   apps: [
     {
       id: 0,
@@ -26,16 +26,6 @@ export const APPLIST = {
       icon: towerstarIcon,
       description: "Skye's Tool Thread - The source of trurth for all things Tower and Skye! CDs nutz gottem.",
       url: 'https://discord.com/channels/850137217828388904/1241233346894364813/1241233350782353408',
-      author: 'Skye',
-      status: 'Supported',
-    },
-    {
-      id: 13,
-      name: 'What UW Should I Pick?',
-      icon: uwIcon,
-      description:
-        'Consult this before picking any UW for an up to date suggestion on which one you should pick given your current owned UW and options, as well as a description of the use of each UW, their + upgrades, and important module synergies.',
-      url: 'https://what-uw-should-i-pick.netlify.app/',
       author: 'Skye',
       status: 'Supported',
     },
@@ -153,12 +143,13 @@ export const APPLIST = {
       status: 'Supported',
     },
     {
-      id: 16,
-      name: 'Module Tracker',
-      icon: moduleTrackerIcon,
-      description: 'Track your modules statistics and gems spent.',
-      url: 'https://tower-module-tracker.vercel.app/',
-      author: 'Hazy',
+      id: 13,
+      name: 'What UW Should I Pick?',
+      icon: uwIcon,
+      description:
+        'Consult this before picking any UW for an up to date suggestion on which one you should pick given your current owned UW and options, as well as a description of the use of each UW, their + upgrades, and important module synergies.',
+      url: 'https://what-uw-should-i-pick.netlify.app/',
+      author: 'Skye',
       status: 'Supported',
     },
     {
@@ -178,6 +169,25 @@ export const APPLIST = {
         'Simulate Enemy Level Skips for a run to get an accurate idea of how many skips to expect.  Accounts for freeups, cash purchased levels, and more.',
       url: 'https://towerels.pythonanywhere.com/',
       author: 'Andy1292',
+      status: 'Supported',
+    },
+    {
+      id: 16,
+      name: 'Module Tracker',
+      icon: moduleTrackerIcon,
+      description: 'Track your modules statistics and gems spent.',
+      url: 'https://tower-module-tracker.vercel.app/',
+      author: 'Hazy',
+      status: 'Supported',
+    },
+    {
+      id: 17,
+      name: 'Substat Calculator',
+      icon: diceIcon,
+      description: 'Calculate and plan the substats of your mods.',
+      url: 'https://substat-calculator.netlify.app/',
+      author: 'Zanny',
+      type: 'app',
       status: 'Supported',
     },
   ],

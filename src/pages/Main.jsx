@@ -5,7 +5,7 @@ import { ThemeToggle } from '../components/ThemeToggle.jsx';
 import { ChevronIcon, SlidersIcon } from '../components/icons.jsx';
 import { APPLIST } from '../utils/Applist.js';
 import { GUIDELIST } from '../utils/Guidelist.js';
-import { useUpdatedState } from '../utils/hooks.js';
+import { useMediaQuery, useUpdatedState } from '../utils/hooks.js';
 import { useTheme } from '../utils/useTheme.js';
 import logo from '../assets/apps/logo.webp';
 import './Main.scss';
@@ -16,9 +16,14 @@ export const VIEWS = {
 };
 
 const SOURCES = {
-  [VIEWS.APPS]: { items: APPLIST.apps, kind: 'app', description: APPLIST.description },
-  [VIEWS.GUIDES]: { items: GUIDELIST.guides, kind: 'guide', description: GUIDELIST.description },
+  [VIEWS.APPS]: { items: APPLIST.apps, kind: 'app' },
+  [VIEWS.GUIDES]: { items: GUIDELIST.guides, kind: 'guide' },
 };
+
+// Wide enough for the tabs and the theme selector to share the sticky bar; below
+// it the selector drops back into the collapsible options panel. Mirrors $bp-md,
+// but lives here because the breakpoint moves a node rather than restyling one.
+const SINGLE_ROW = '(min-width: 900px)';
 
 // Ids are only unique within their own list, so favourites are keyed by both.
 const keyFor = (kind, id) => `${kind}:${id}`;
@@ -27,6 +32,7 @@ const matches = (item, query) => [item.name, item.description, item.author].some
 
 const Main = () => {
   const { mode, rolled, setMode, reroll } = useTheme();
+  const singleRow = useMediaQuery(SINGLE_ROW);
 
   const [view, setView] = useUpdatedState(VIEWS.APPS, 'view');
   const [sort, setSort] = useUpdatedState(SORTS.DEFAULT, 'sort');
@@ -77,6 +83,10 @@ const Main = () => {
     clearFilters();
   };
 
+  // Rendered into the sticky bar when there is room beside the tabs, and into the
+  // options panel otherwise, so narrow screens can still collapse it away.
+  const themeToggle = <ThemeToggle mode={mode} rolled={rolled} onSelect={setMode} onReroll={reroll} />;
+
   return (
     <div className='shell'>
       <header className='shell__header'>
@@ -104,26 +114,28 @@ const Main = () => {
         </button>
       </header>
 
-      <nav className='view-tabs' aria-label='Sections'>
-        {Object.values(VIEWS).map(value => (
-          <button
-            key={value}
-            type='button'
-            className={`view-tabs__tab${view === value ? ' is-active' : ''}`}
-            aria-current={view === value}
-            onClick={() => changeView(value)}
-          >
-            {value}
-          </button>
-        ))}
-      </nav>
+      <div className='view-bar'>
+        <nav className='view-tabs' aria-label='Sections'>
+          {Object.values(VIEWS).map(value => (
+            <button
+              key={value}
+              type='button'
+              className={`view-tabs__tab${view === value ? ' is-active' : ''}`}
+              aria-current={view === value}
+              onClick={() => changeView(value)}
+            >
+              {value}
+            </button>
+          ))}
+        </nav>
+
+        {singleRow && themeToggle}
+      </div>
 
       <main className='shell__main'>
-        <p className='shell__intro'>{source.description}</p>
-
         <div id='site-controls' className={`controls${controlsOpen ? '' : ' is-collapsed'}`}>
           <div className='controls__inner'>
-            <ThemeToggle mode={mode} rolled={rolled} onSelect={setMode} onReroll={reroll} />
+            {!singleRow && themeToggle}
 
             <Toolbar
               search={search}

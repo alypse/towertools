@@ -80,6 +80,49 @@
   }
 }
 
+/**
+ * The view tabs stay pinned to the top while the list scrolls under them. On wide
+ * screens `Main.jsx` renders the theme selector into this row as well, which
+ * saves a whole stacked row of vertical space above the fold.
+ *
+ * Selected as `.shell > .view-bar` so it outranks the `.shell > *` z-index reset
+ * in `app.scss`; without that the main column paints over the pinned bar.
+ */
+.shell > .view-bar {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+
+  // Bleed out to the shell's padding edges so cards don't show through beside the
+  // bar while scrolling; the matching padding puts the contents back in line.
+  margin-inline: calc(var(--space-5) * -1);
+  padding: var(--space-3) var(--space-5);
+  background: color-mix(in srgb, var(--bg) 85%, transparent);
+  backdrop-filter: blur(12px);
+
+  @supports not (backdrop-filter: blur(1px)) {
+    background: var(--bg);
+  }
+
+  @include below($bp-sm) {
+    margin-inline: calc(var(--space-3) * -1);
+    padding: var(--space-2) var(--space-3);
+  }
+}
+
+// Beside the tabs the selector runs horizontally; on its own in the options panel
+// it keeps the stacked layout ThemeToggle.scss defines.
+.view-bar .theme-toggle {
+  flex-direction: row;
+  align-items: center;
+  gap: var(--space-3);
+}
+
 .view-tabs {
   display: inline-flex;
   gap: var(--space-1);

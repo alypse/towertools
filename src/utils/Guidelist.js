@@ -1,6 +1,5 @@
 export const GUIDELIST = {
   name: 'Guides',
-  description: 'A collection of guides for The Tower.',
   guides: [
     {
       id: 0,
