@@ -60,6 +60,18 @@ img {
   color: var(--accent-contrast);
 }
 
+/* Available to screen readers only. */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
 /* Honour the OS scrollbar/form-control colour scheme in each theme. */
 :root {
   color-scheme: light;

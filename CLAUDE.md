@@ -20,15 +20,23 @@ index.html          (repo root; inline pre-paint script applies the stored theme
 src/index.jsx       createRoot → <App/>
 └── src/app.jsx     imports app.scss (which pulls in tokens + global), renders <Main/>
     └── src/pages/Main.jsx
-        ├── <ThemeToggle/>  src/components/ThemeToggle.jsx
-        ├── nav             view tabs from the VIEWS map
-        ├── <Toolbar/>      src/components/Toolbar.jsx  (search, sort, author chips)
-        └── <List/>         src/components/List.jsx → <Panel/> per item
+        ├── header             brand + the Options collapse toggle
+        ├── nav                view tabs from the VIEWS map
+        ├── #site-controls     collapsible config panel (state persisted)
+        │   ├── <ThemeToggle/> src/components/ThemeToggle.jsx
+        │   └── <Toolbar/>     src/components/Toolbar.jsx (search, sort, author chips)
+        └── <List/>            src/components/List.jsx → <Panel/> per item
 ```
 
-`Main.jsx` owns all list state: view, sort, favourites, active author filters (all
-persisted) and search (transient). `Panel` owns only its own expand toggle. `useTheme`
-owns the theme.
+`Main.jsx` owns all list state: view, sort, favourites, active author filters and the
+options-panel open/closed state (all persisted), plus search (transient). `Panel` owns
+only its own expand toggle. `useTheme` owns the theme.
+
+The options panel collapses so the configuration controls don't eat the screen on
+mobile. It animates with the `grid-template-rows: 1fr → 0fr` technique rather than
+`max-height`, so it sizes to its content; the inner element takes `visibility: hidden`
+on a delay to drop out of the tab order once the animation finishes. Filters keep
+applying while collapsed, so the toggle shows a dot when any are active.
 
 ## The common change: adding an app or a guide
 

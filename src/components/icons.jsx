@@ -58,6 +58,21 @@ export const ExternalIcon = props => (
   </svg>
 );
 
+export const SlidersIcon = props => (
+  <svg {...base} {...props}>
+    <path d='M4 6h10M18 6h2M4 12h4M12 12h8M4 18h10M18 18h2' />
+    <circle cx='16' cy='6' r='2' />
+    <circle cx='10' cy='12' r='2' />
+    <circle cx='16' cy='18' r='2' />
+  </svg>
+);
+
+export const ChevronIcon = props => (
+  <svg {...base} width={16} height={16} {...props}>
+    <path d='m6 9 6 6 6-6' />
+  </svg>
+);
+
 export const CloseIcon = props => (
   <svg {...base} width={16} height={16} {...props}>
     <path d='M6 6l12 12M18 6L6 18' />

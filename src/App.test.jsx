@@ -89,6 +89,65 @@ describe('toolbar', () => {
   });
 });
 
+describe('options panel', () => {
+  const panel = () => document.getElementById('site-controls');
+
+  it('is expanded by default', () => {
+    render(<App />);
+
+    expect(screen.getByRole('button', { name: /Options/i })).toHaveAttribute('aria-expanded', 'true');
+    expect(panel()).not.toHaveClass('is-collapsed');
+  });
+
+  it('collapses and expands the theme, search and filter controls', async () => {
+    const user = userEvent.setup();
+    render(<App />);
+
+    await user.click(screen.getByRole('button', { name: /Options/i }));
+
+    expect(screen.getByRole('button', { name: /Options/i })).toHaveAttribute('aria-expanded', 'false');
+    expect(panel()).toHaveClass('is-collapsed');
+
+    await user.click(screen.getByRole('button', { name: /Options/i }));
+
+    expect(screen.getByRole('button', { name: /Options/i })).toHaveAttribute('aria-expanded', 'true');
+    expect(panel()).not.toHaveClass('is-collapsed');
+  });
+
+  it('remembers the collapsed state across a reload', async () => {
+    const user = userEvent.setup();
+    const { unmount } = render(<App />);
+
+    await user.click(screen.getByRole('button', { name: /Options/i }));
+    unmount();
+
+    render(<App />);
+    expect(panel()).toHaveClass('is-collapsed');
+  });
+
+  it('keeps filtering while collapsed and flags that on the button', async () => {
+    const user = userEvent.setup();
+    render(<App />);
+
+    await user.type(screen.getByRole('searchbox', { name: 'Search' }), 'bot calculator');
+    await user.click(screen.getByRole('button', { name: /Options/i }));
+
+    // The filter is still applied even though its controls are hidden.
+    expect(screen.getByRole('link', { name: /Bot Calculator/i })).toBeInTheDocument();
+    expect(screen.queryByRole('link', { name: /Cell Calculator/i })).not.toBeInTheDocument();
+    expect(screen.getByText('Filters active')).toBeInTheDocument();
+  });
+
+  it('does not flag active filters when there are none', async () => {
+    const user = userEvent.setup();
+    render(<App />);
+
+    await user.click(screen.getByRole('button', { name: /Options/i }));
+
+    expect(screen.queryByText('Filters active')).not.toBeInTheDocument();
+  });
+});
+
 describe('favourites', () => {
   it('pins an entry to the top and persists it', async () => {
     const user = userEvent.setup();

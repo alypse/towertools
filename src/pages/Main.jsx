@@ -2,6 +2,7 @@ import { useMemo, useState } from 'react';
 import { List } from '../components/List.jsx';
 import { SORTS, Toolbar } from '../components/Toolbar.jsx';
 import { ThemeToggle } from '../components/ThemeToggle.jsx';
+import { ChevronIcon, SlidersIcon } from '../components/icons.jsx';
 import { APPLIST } from '../utils/Applist.js';
 import { GUIDELIST } from '../utils/Guidelist.js';
 import { useUpdatedState } from '../utils/hooks.js';
@@ -31,6 +32,7 @@ const Main = () => {
   const [sort, setSort] = useUpdatedState(SORTS.DEFAULT, 'sort');
   const [favourites, setFavourites] = useUpdatedState([], 'favourites');
   const [activeAuthors, setActiveAuthors] = useUpdatedState([], 'authors');
+  const [controlsOpen, setControlsOpen] = useUpdatedState(true, 'controls');
   const [search, setSearch] = useState('');
 
   const source = SOURCES[view] ?? SOURCES[VIEWS.APPS];
@@ -63,6 +65,8 @@ const Main = () => {
 
   const toggleAuthor = author => setActiveAuthors(current => (current.includes(author) ? current.filter(entry => entry !== author) : [...current, author]));
 
+  const filtersActive = search.trim().length > 0 || activeAuthors.length > 0;
+
   const clearFilters = () => {
     setSearch('');
     setActiveAuthors([]);
@@ -83,7 +87,21 @@ const Main = () => {
             <p className='brand__tagline'>Community tools, calculators and guides for The Tower.</p>
           </div>
         </div>
-        <ThemeToggle mode={mode} rolled={rolled} onSelect={setMode} onReroll={reroll} />
+        <button
+          type='button'
+          className='options-toggle'
+          aria-expanded={controlsOpen}
+          aria-controls='site-controls'
+          onClick={() => setControlsOpen(open => !open)}
+        >
+          <SlidersIcon />
+          <span className='options-toggle__text'>Options</span>
+          {/* Filters keep applying while collapsed, so flag that from the button
+              rather than leaving a short list looking unexplained. */}
+          {!controlsOpen && filtersActive && <span className='options-toggle__dot' />}
+          {!controlsOpen && filtersActive && <span className='visually-hidden'>Filters active</span>}
+          <ChevronIcon className='options-toggle__chevron' />
+        </button>
       </header>
 
       <nav className='view-tabs' aria-label='Sections'>
@@ -103,18 +121,24 @@ const Main = () => {
       <main className='shell__main'>
         <p className='shell__intro'>{source.description}</p>
 
-        <Toolbar
-          search={search}
-          onSearchChange={setSearch}
-          sort={sort}
-          onSortChange={setSort}
-          authors={authors}
-          activeAuthors={activeAuthors}
-          onToggleAuthor={toggleAuthor}
-          onClear={clearFilters}
-          resultCount={visible.length}
-          totalCount={items.length}
-        />
+        <div id='site-controls' className={`controls${controlsOpen ? '' : ' is-collapsed'}`}>
+          <div className='controls__inner'>
+            <ThemeToggle mode={mode} rolled={rolled} onSelect={setMode} onReroll={reroll} />
+
+            <Toolbar
+              search={search}
+              onSearchChange={setSearch}
+              sort={sort}
+              onSortChange={setSort}
+              authors={authors}
+              activeAuthors={activeAuthors}
+              onToggleAuthor={toggleAuthor}
+              onClear={clearFilters}
+              resultCount={visible.length}
+              totalCount={items.length}
+            />
+          </div>
+        </div>
 
         <List items={visible} favourites={favourites} onToggleFavourite={toggleFavourite} />
       </main>
