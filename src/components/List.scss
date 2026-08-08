@@ -1,0 +1,23 @@
+@use '../variables' as *;
+
+.list {
+  display: grid;
+  // `min(100%, 300px)` keeps the track from overflowing on very narrow screens,
+  // which a bare `minmax(300px, 1fr)` would do.
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr));
+  gap: var(--space-4);
+  align-items: stretch;
+
+  @include below($bp-sm) {
+    gap: var(--space-3);
+  }
+}
+
+.list__empty {
+  padding: var(--space-7) var(--space-4);
+  text-align: center;
+  color: var(--text-muted);
+  background: var(--surface);
+  border: 1px dashed var(--border-strong);
+  border-radius: var(--radius-md);
+}

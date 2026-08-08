@@ -1,0 +1,177 @@
+@use '../variables' as *;
+
+.toolbar {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.toolbar__row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+
+  @include below($bp-sm) {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+
+.toolbar__row--chips {
+  align-items: center;
+  justify-content: space-between;
+
+  @include below($bp-sm) {
+    align-items: stretch;
+  }
+}
+
+.toolbar__search {
+  position: relative;
+  flex: 1;
+  min-width: 0;
+}
+
+.toolbar__search-icon {
+  position: absolute;
+  left: var(--space-3);
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-muted);
+  pointer-events: none;
+}
+
+.toolbar__input {
+  @include tap-target;
+  @include focus-ring;
+  width: 100%;
+  padding: var(--space-2) var(--space-3) var(--space-2) var(--space-6);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-pill);
+  transition:
+    border-color var(--transition),
+    background var(--transition);
+
+  &::placeholder {
+    color: var(--text-muted);
+  }
+
+  &:hover {
+    border-color: var(--border-strong);
+  }
+
+  &:focus {
+    border-color: var(--accent);
+    outline: none;
+  }
+
+  // Firefox/Safari render their own clear affordance for type="search";
+  // suppressed so the control looks identical across browsers.
+  &::-webkit-search-cancel-button {
+    -webkit-appearance: none;
+  }
+}
+
+.toolbar__sort {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  flex-shrink: 0;
+}
+
+.toolbar__sort-label {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+
+.toolbar__select {
+  @include tap-target;
+  @include focus-ring;
+  padding: var(--space-2) var(--space-3);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-pill);
+  cursor: pointer;
+  transition: border-color var(--transition);
+
+  &:hover {
+    border-color: var(--border-strong);
+  }
+
+  @include below($bp-sm) {
+    flex: 1;
+  }
+}
+
+.toolbar__chips {
+  display: flex;
+  gap: var(--space-2);
+  flex-wrap: wrap;
+  min-width: 0;
+
+  // On phones the chips scroll sideways rather than wrapping into a wall of
+  // buttons that pushes the list off screen.
+  @include below($bp-sm) {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding-bottom: var(--space-1);
+    scrollbar-width: thin;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+.chip {
+  flex-shrink: 0;
+  padding: var(--space-1) var(--space-3);
+  min-height: 32px;
+  background: var(--bg-soft);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-pill);
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  font-weight: 600;
+  white-space: nowrap;
+  transition:
+    background var(--transition),
+    color var(--transition),
+    border-color var(--transition);
+
+  &:hover {
+    border-color: var(--accent);
+    color: var(--text);
+  }
+
+  &.is-active {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: var(--accent-contrast);
+  }
+}
+
+.toolbar__count {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  flex-shrink: 0;
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  white-space: nowrap;
+}
+
+.toolbar__clear {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  padding: var(--space-1) var(--space-2);
+  border: none;
+  border-radius: var(--radius-sm);
+  background: transparent;
+  color: var(--accent);
+  font-size: 0.8rem;
+  font-weight: 600;
+
+  &:hover {
+    background: var(--bg-soft);
+  }
+}

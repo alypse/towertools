@@ -1,18 +1,164 @@
-@import '../variables';
+@use '../variables' as *;
 
+.options-toggle {
+  @include tap-target;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-3);
+  background: var(--bg-soft);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-pill);
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  font-weight: 600;
+  flex-shrink: 0;
+  transition:
+    background var(--transition),
+    color var(--transition),
+    border-color var(--transition);
 
-//#main {
-//  display: flex;
-//  flex-direction: column;
-//  background: $background;
-//  padding: 5px;
-//  justify-content: flex-start;
-//  align-items: stretch;
-//  .nav {
-//    display: flex;
-//    button { width: 8rem; margin: 5px; }
-//    @media (max-width: 600px) {
-//      flex-direction: column;
-//    }
-//  }
-//}
+  &:hover {
+    border-color: var(--accent);
+    color: var(--text);
+  }
+}
+
+.options-toggle__chevron {
+  transition: transform var(--transition);
+
+  .options-toggle[aria-expanded='false'] & {
+    transform: rotate(-90deg);
+  }
+}
+
+// Filters stay applied while the panel is collapsed, so the button carries a
+// dot to explain an unexpectedly short list.
+.options-toggle__dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: var(--glow);
+}
+
+/**
+ * Collapsible configuration panel.
+ *
+ * The 0fr/1fr grid trick animates to the content's natural height, which a
+ * max-height transition cannot do without hardcoding a guess. `visibility`
+ * removes the collapsed content from the tab order and the accessibility tree,
+ * delayed so it stays visible for the duration of the closing animation.
+ */
+.controls {
+  display: grid;
+  grid-template-rows: 1fr;
+  opacity: 1;
+  transition:
+    grid-template-rows var(--transition),
+    opacity var(--transition);
+
+  &.is-collapsed {
+    grid-template-rows: 0fr;
+    opacity: 0;
+    // The parent's flex `gap` still applies to a zero-height child, which would
+    // otherwise leave a double gap above the list.
+    margin-bottom: calc(var(--space-4) * -1);
+  }
+}
+
+.controls__inner {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  min-height: 0;
+  overflow: hidden;
+
+  .controls.is-collapsed & {
+    visibility: hidden;
+    transition: visibility 0s linear 180ms;
+  }
+}
+
+/**
+ * The view tabs stay pinned to the top while the list scrolls under them. On wide
+ * screens `Main.jsx` renders the theme selector into this row as well, which
+ * saves a whole stacked row of vertical space above the fold.
+ *
+ * Selected as `.shell > .view-bar` so it outranks the `.shell > *` z-index reset
+ * in `app.scss`; without that the main column paints over the pinned bar.
+ */
+.shell > .view-bar {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+
+  // Bleed out to the shell's padding edges so cards don't show through beside the
+  // bar while scrolling; the matching padding puts the contents back in line.
+  margin-inline: calc(var(--space-5) * -1);
+  padding: var(--space-3) var(--space-5);
+  background: color-mix(in srgb, var(--bg) 85%, transparent);
+  backdrop-filter: blur(12px);
+
+  @supports not (backdrop-filter: blur(1px)) {
+    background: var(--bg);
+  }
+
+  @include below($bp-sm) {
+    margin-inline: calc(var(--space-3) * -1);
+    padding: var(--space-2) var(--space-3);
+  }
+}
+
+// Beside the tabs the selector runs horizontally; on its own in the options panel
+// it keeps the stacked layout ThemeToggle.scss defines.
+.view-bar .theme-toggle {
+  flex-direction: row;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.view-tabs {
+  display: inline-flex;
+  gap: var(--space-1);
+  padding: var(--space-1);
+  background: var(--bg-soft);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-pill);
+  width: fit-content;
+
+  @include below($bp-sm) {
+    width: 100%;
+  }
+}
+
+.view-tabs__tab {
+  @include tap-target;
+  flex: 1;
+  padding: var(--space-2) var(--space-5);
+  border: none;
+  border-radius: var(--radius-pill);
+  background: transparent;
+  color: var(--text-muted);
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition:
+    background var(--transition),
+    color var(--transition);
+
+  &:hover:not(.is-active) {
+    background: var(--surface-hover);
+    color: var(--text);
+  }
+
+  &.is-active {
+    background: var(--accent-gradient);
+    color: var(--accent-contrast);
+    box-shadow: var(--glow);
+  }
+}

@@ -1,49 +1,26 @@
-$background: #111111;
-$light-background: #FAFAFA ;
-$primary: #747474;
-$secondary: #919191;
-$success: #32EF2E;
-$danger: #FA1313;
-$white: #FAFAFA;
-$disabled: #1C1C1C;
-$active: #b395fe;
-$hover: #0ac6fe;
+// Pure-Sass helpers only. All colour lives in `styles/tokens.scss` as CSS custom
+// properties, because the theme toggle has to switch palettes at runtime and
+// Sass variables are resolved at build time.
 
-@mixin container($color) {
-  border-radius: 8px;
-  padding: 5px;
-  margin: 5px;
-}
+$bp-sm: 600px;
+$bp-md: 900px;
+$bp-lg: 1200px;
 
-@mixin dialog($color) {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  max-width: 100%;
-  background: $color;
-  color: $white;
-  padding: 8px;
-  margin: 5px;
-  border-top: 1px solid $secondary;
-
-  .details {
-    display: flex;
-    cursor: pointer;
-    flex-grow: 0;
-    padding: 8px;
-    font-weight: normal;
-    font-size: 0.8rem;
-  }
-  .description {
-    display: flex;
-    cursor: pointer;
-    flex-grow: 0;
-    padding: 8px;
-    font-weight: lighter;
-    font-size: 0.9rem;
+@mixin below($size) {
+  @media (max-width: $size) {
+    @content;
   }
 }
 
+// Minimum comfortable tap target; applied to every interactive control.
+@mixin tap-target {
+  min-height: 44px;
+  min-width: 44px;
+}
 
-
-
+@mixin focus-ring {
+  &:focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
+  }
+}

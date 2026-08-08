@@ -1,6 +1,7 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Tower Tools",
+  "name": "Tower Tools — tools and guides for The Tower",
+  "description": "A collection of community tools, calculators and guides for The Tower.",
   "icons": [
     {
       "src": "favicon.ico",
@@ -20,6 +21,6 @@
   ],
   "start_url": ".",
   "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "theme_color": "#0b0b10",
+  "background_color": "#0b0b10"
 }
