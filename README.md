@@ -7,7 +7,11 @@ Published to [thetower.tools](https://thetower.tools)
 
 ## Getting started
 
+Requires **Node 20.19+** (Vite 8's bundler uses `util.styleText`, added in Node
+20.12). The pinned version lives in `.nvmrc`.
+
 ```bash
+nvm use
 npm install
 npm run dev
 ```
@@ -58,3 +62,7 @@ against the WCAG contrast formula, and `themeRng.test.js` enforces that across
 Netlify serves the contents of `build/`, with `public/_redirects` providing the
 SPA fallback. Vite is configured to output to `build/` so the hosting config
 matches Create React App's old layout.
+
+Netlify reads `.nvmrc` to pick the Node version. Note that a `NODE_VERSION`
+environment variable set in the Netlify UI would override it — if the build ever
+fails on an old Node again, check there first.
